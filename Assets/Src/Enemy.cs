@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
         spriteRenderer.color = ogcolor;
     }
 
-    private void Die()
+    void Die()
     {
         //go around lootable
         //spawn item 
@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
         {
             if (Random.Range(0f, 100f) <= lootitem.dropChance)
             {
-                Instantiate(lootitem.itemPrefabs);
+                InstantiateLoot(lootitem.itemPrefabs);
             }
             break;
         }
