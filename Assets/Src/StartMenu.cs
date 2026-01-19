@@ -5,7 +5,7 @@ public class StartMenu : MonoBehaviour
 {
     public void OnStartClip()
     {
-        SceneManager.LoadScene("SceneLvl1");
+        SceneManager.LoadScene("SelectLevel");
     }
     public void OnExitClip()
     {
