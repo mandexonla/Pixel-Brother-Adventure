@@ -10,6 +10,8 @@ public class CharacterMovement : MonoBehaviour
     public ParticleSystem smokeFX;
     BoxCollider2D playerCollider;
 
+    private GameManager gameManager;
+
 
     [Header("Movement")]
     public float moveSpeed = 5f;
@@ -60,6 +62,11 @@ public class CharacterMovement : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpForce = new Vector2(5f, 10f);
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -68,6 +75,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+        if (gameManager.IsGameOver()) return;
+
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetFloat("magnitude", rb.velocity.magnitude);
         animator.SetBool("isWallSliding", isWallSliding);

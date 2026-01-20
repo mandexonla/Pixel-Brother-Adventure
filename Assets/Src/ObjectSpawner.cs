@@ -27,7 +27,6 @@ public class ObjectSpawner : MonoBehaviour
         //Gather valid Positions
         GatherValidPositions();
         StartCoroutine(SpawnObjectsIfNeeded());
-        GameController.OnReset += LevelChange;
     }
 
     // Update is called once per frame

@@ -7,7 +7,7 @@ public class Fruit : MonoBehaviour, Item
     public int worth = 5;
     public void Collect()
     {
-        OnFruitCollect.Invoke(worth);
+        OnFruitCollect?.Invoke(worth);
         SoundEffectManager.Play("Fruit");
         Destroy(gameObject);
     }
