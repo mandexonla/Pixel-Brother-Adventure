@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Ladder
+  - Cup
   layers:
   - Default
   - TransparentFX

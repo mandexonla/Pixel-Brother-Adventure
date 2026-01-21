@@ -75,7 +75,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.IsGameOver()) return;
+        if (gameManager.IsGameOver() || gameManager.IsGameWin()) return;
 
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetFloat("magnitude", rb.velocity.magnitude);
@@ -133,6 +133,11 @@ public class CharacterMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isOnPlatform = true;
+        }
+        else if (collision.gameObject.CompareTag("Cup"))
+        {
+            //estroy(collision.gameObject);
+            gameManager.GameWin();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
