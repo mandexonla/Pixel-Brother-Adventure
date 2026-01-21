@@ -5,11 +5,21 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bulletPrefabs;
     public float bulletSpeed = 50f;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     void Update()
     {
+        if (gameManager != null && gameManager.IsGameWin() || gameManager.IsGameOver()) return;
+
         if (Input.GetMouseButtonDown(0))//left click
         {
             Shoot();
+            SoundEffectManager.Play("BulletShoot");
         }
     }
     void Shoot()
@@ -24,4 +34,5 @@ public class PlayerShoot : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y) * bulletSpeed;
         Destroy(bullet, 2f);
     }
+
 }

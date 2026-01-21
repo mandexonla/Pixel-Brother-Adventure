@@ -10,9 +10,6 @@ public class CharacterMovement : MonoBehaviour
     public ParticleSystem smokeFX;
     BoxCollider2D playerCollider;
 
-    private GameManager gameManager;
-
-
     [Header("Movement")]
     public float moveSpeed = 5f;
     private float horizontalMovement;
@@ -62,10 +59,6 @@ public class CharacterMovement : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpForce = new Vector2(5f, 10f);
 
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
 
     private void Start()
     {
@@ -75,7 +68,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.IsGameOver() || gameManager.IsGameWin()) return;
+        if (GameManager.Instance.IsGameOver() || GameManager.Instance.IsGameWin()) return;
 
         animator.SetFloat("yVelocity", rb.velocity.y);
         animator.SetFloat("magnitude", rb.velocity.magnitude);
@@ -137,7 +130,7 @@ public class CharacterMovement : MonoBehaviour
         else if (collision.gameObject.CompareTag("Cup"))
         {
             //estroy(collision.gameObject);
-            gameManager.GameWin();
+            GameManager.Instance.GameWin();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -181,6 +174,7 @@ public class CharacterMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpRemaining--;
                 JumpFX();
+                SoundEffectManager.Play("PlayerJump");
             }
             else if (context.canceled)
             {
@@ -188,8 +182,10 @@ public class CharacterMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 jumpRemaining--;
                 JumpFX();
+                SoundEffectManager.Play("PlayerJump");
             }
         }
+
 
         //Wall Jump
         if (context.performed && wallJumpTimer > 0f)

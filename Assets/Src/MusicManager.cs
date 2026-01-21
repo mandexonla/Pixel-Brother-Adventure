@@ -55,6 +55,18 @@ public class MusicManager : MonoBehaviour
 
     public static void PauseBackground()
     {
-        instance.audioSource.Pause();
+        if (instance != null && instance.audioSource != null)
+        {
+            instance.audioSource.Pause();
+        }
     }
+
+    public static void ResumeBackground()
+    {
+        if (instance != null && instance.audioSource != null)
+        {
+            instance.audioSource.UnPause();
+        }
+    }
+
 }

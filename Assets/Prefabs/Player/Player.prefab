@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004852245201764794}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,9 +48,10 @@ GameObject:
   - component: {fileID: 9113831538240681649}
   - component: {fileID: 5947481621071354272}
   - component: {fileID: 6658215196823481778}
-  - component: {fileID: -4466316621491287081}
-  - component: {fileID: 7050787647274864693}
-  m_Layer: 0
+  - component: {fileID: 4121613538650646078}
+  - component: {fileID: 3766389231838950092}
+  - component: {fileID: 3984577169704618130}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -262,17 +263,37 @@ MonoBehaviour:
     m_ActionId: 57252495-3625-4505-9536-78f65f352cff
     m_ActionName: Player/Hold[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 448729185243458828}
+        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5c34a562-8f4f-4fb4-b1d6-2e5460d0d754
     m_ActionName: Player/Dash[/Keyboard/q,/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 448729185243458828}
+        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 90994bd2-a65c-4516-b267-fd3540ede08c
     m_ActionName: Player/Drop[/Keyboard/s,/Keyboard/downArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 95450a8f-7a37-439c-bc39-b0687dff8003
-    m_ActionName: Player/climb[/Keyboard/w]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -295,7 +316,7 @@ MonoBehaviour:
   smokeFX: {fileID: 8560122848755384662}
   moveSpeed: 5
   dashSpeed: 20
-  dashDuration: 0.2
+  dashDuration: 0.25
   dashCooldown: 0.1
   jumpForce: 10
   maxJump: 2
@@ -375,7 +396,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -434,7 +455,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.13249362}
   serializedVersion: 2
   m_Radius: 0.43196273
---- !u!114 &-4466316621491287081
+--- !u!114 &4121613538650646078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313483151235770922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb9605714ea24e44bccb15a9dd487c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  heartUI: {fileID: 0}
+--- !u!114 &3766389231838950092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,9 +481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef366724e6428a4439c7a1f99cd88015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefabs: {fileID: 0}
+  bulletPrefabs: {fileID: 4551476022322185201, guid: 3941afae28d0afd42a550b253e0e8883, type: 3}
   bulletSpeed: 50
---- !u!96 &7050787647274864693
+--- !u!96 &3984577169704618130
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -469,7 +504,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -490,11 +525,11 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -513,8 +548,8 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -530,14 +565,14 @@ TrailRenderer:
       ctime7: 0
       atime0: 0
       atime1: 65535
-      atime2: 0
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -550,7 +585,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!1 &3850058515354242968
 GameObject:
@@ -565,7 +600,7 @@ GameObject:
   - component: {fileID: 8393239605308970139}
   - component: {fileID: 1671084443386167735}
   - component: {fileID: 3411973340372713552}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2594277839381536856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +746,7 @@ GameObject:
   - component: {fileID: 3644165132680625315}
   - component: {fileID: 4060903760263190518}
   - component: {fileID: 8528494441891039502}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: LoadCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +821,7 @@ GameObject:
   - component: {fileID: 1806802573843295684}
   - component: {fileID: 8560122848755384662}
   - component: {fileID: 2323173295112652483}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SmokeFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +1033,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.16358757, a: 1}
+      maxColor: {r: 0.6830188, g: 0.6830188, b: 0.6830188, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject gameWinUI;
+
     public static event Action OnResetGame;
     private bool isGameOver = false;
     private bool isGameWin = false;
@@ -30,7 +31,11 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         Time.timeScale = 0f; // Pause the game
+
+        MusicManager.PauseBackground();
+
         gameOverUI.SetActive(true);
+        SoundEffectManager.Play("OverGame");
     }
 
     public void GameWin()
@@ -38,12 +43,16 @@ public class GameManager : MonoBehaviour
         isGameWin = true;
         Time.timeScale = 0f;
         gameWinUI.SetActive(true);
+        SoundEffectManager.Play("WinGame");
     }
 
     public void ResetGame()
     {
         isGameOver = false;
         Time.timeScale = 1f;
+
+        MusicManager.ResumeBackground();
+
         SceneManager.LoadScene("Level 1");
     }
     public bool IsGameOver()
