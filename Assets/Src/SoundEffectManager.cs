@@ -15,7 +15,7 @@ public class SoundEffectManager : MonoBehaviour
             Instance = this;
             auidoSource = GetComponent<AudioSource>();
             soundEffectLibraly = GetComponent<SoundEffectLibraly>();
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {

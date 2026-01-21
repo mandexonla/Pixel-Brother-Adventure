@@ -7,7 +7,7 @@ public class HealthItem : MonoBehaviour, Item
     public static event Action<int> OnHealthCollect;
     public void Collect()
     {
-        OnHealthCollect.Invoke(healAmount);
+        OnHealthCollect?.Invoke(healAmount);
         Destroy(gameObject);
     }
 }

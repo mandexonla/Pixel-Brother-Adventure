@@ -29,8 +29,10 @@ public class HeartUI : MonoBehaviour
 
     public void UpdateHeart(int currentHealth)
     {
+        hearts.RemoveAll(h => h == null);
         for (int i = 0; i < hearts.Count; i++)
         {
+
             if (i < currentHealth)
             {
                 hearts[i].sprite = fullHeartSprite;

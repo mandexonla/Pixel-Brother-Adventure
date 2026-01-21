@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
@@ -6,7 +5,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject gameWinUI;
 
-    public static event Action OnResetGame;
+    //public static event Action OnResetGame;
     private bool isGameOver = false;
     private bool isGameWin = false;
 

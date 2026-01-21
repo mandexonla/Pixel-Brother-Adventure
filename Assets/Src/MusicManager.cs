@@ -14,13 +14,15 @@ public class MusicManager : MonoBehaviour
         {
             instance = this;
             audioSource = GetComponent<AudioSource>();
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
+
     // Start is called before the first frame update
     void Start()
     {

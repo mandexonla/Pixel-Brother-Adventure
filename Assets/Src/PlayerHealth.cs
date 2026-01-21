@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         ResetHealth();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        GameManager.OnResetGame += ResetHealth;
+        //GameManager.OnResetGame += ResetHealth;
         HealthItem.OnHealthCollect += Heal;
     }
 
@@ -69,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             //Player Death
-            onPlayerDied.Invoke();
+            onPlayerDied?.Invoke();
         }
     }
 
@@ -79,5 +79,18 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = Color.white;
     }
+
+    private void OnEnable()
+    {
+        HealthItem.OnHealthCollect += Heal;
+        //GameManager.OnResetGame += ResetHealth;
+    }
+
+    private void OnDisable()
+    {
+        HealthItem.OnHealthCollect -= Heal;
+        //GameManager.OnResetGame -= ResetHealth;
+    }
+
 
 }
