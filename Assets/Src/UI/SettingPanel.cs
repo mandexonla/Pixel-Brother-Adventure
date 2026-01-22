@@ -19,7 +19,6 @@ public class SettingPanel : MonoBehaviour
             closeButton.onClick.AddListener(() =>
             {
                 settingPanel.SetActive(false);
-
             });
         }
     }

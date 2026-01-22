@@ -10060,6 +10060,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4121613538650646078, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
+      propertyPath: heartUI
+      value: 
+      objectReference: {fileID: 699157665}
     - target: {fileID: 4782293124145007902, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       propertyPath: m_Camera
       value: 
