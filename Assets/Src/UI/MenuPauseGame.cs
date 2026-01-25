@@ -17,6 +17,4 @@ public class MenuPauseGame : MonoBehaviour
             pauseGame.ButtonPause();
         });
     }
-
-
 }
