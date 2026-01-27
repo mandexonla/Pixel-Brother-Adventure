@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
@@ -28,7 +29,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.parent = transform;
+            StartCoroutine(SettingPanelDelayed(collision.gameObject.transform.transform, transform));
         }
     }
 
@@ -36,7 +37,16 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.parent = null;
+            StartCoroutine(SettingPanelDelayed(collision.gameObject.transform.transform, null));
+        }
+    }
+
+    private IEnumerator SettingPanelDelayed(Transform child, Transform parent)
+    {
+        yield return null;
+        if (child != null)
+        {
+            child.parent = parent;
         }
     }
 }
