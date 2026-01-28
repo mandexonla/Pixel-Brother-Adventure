@@ -16,7 +16,7 @@ public class CharacterManager : MonoBehaviour
     {
         Debug.Log(_characterDatabase);
         animator = GetComponent<Animator>();
-        UpdateCharacter(selectedCharacter);
+        UpdateCharacter(PlayerPrefs.GetInt("SelectedCharacter"));
     }
 
     public void NextCharacter()
@@ -48,5 +48,8 @@ public class CharacterManager : MonoBehaviour
         artworkSprite.sprite = _character.characterSprite;
         nameText.text = _character.characterName;
         animator.runtimeAnimatorController = _character.characterAnimator;
+        PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
+        PlayerPrefs.Save();
+        Debug.Log("Character updated to: " + PlayerPrefs.GetInt("SelectedCharacter"));
     }
 }
