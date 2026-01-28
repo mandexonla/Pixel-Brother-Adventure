@@ -7,12 +7,15 @@ public class CharacterManager : MonoBehaviour
     public Text nameText;
     public SpriteRenderer artworkSprite;
 
+    private Animator animator;
+
     private int selectedCharacter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log(_characterDatabase);
+        animator = GetComponent<Animator>();
         UpdateCharacter(selectedCharacter);
     }
 
@@ -44,5 +47,6 @@ public class CharacterManager : MonoBehaviour
         Character _character = _characterDatabase.GetCharacter(selectedCharacter);
         artworkSprite.sprite = _character.characterSprite;
         nameText.text = _character.characterName;
+        animator.runtimeAnimatorController = _character.characterAnimator;
     }
 }

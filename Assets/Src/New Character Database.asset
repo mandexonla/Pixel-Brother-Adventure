@@ -15,7 +15,10 @@ MonoBehaviour:
   _character:
   - characterName: Ninja Frog
     characterSprite: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
+    characterAnimator: {fileID: 9100000, guid: 269791b1a1dc5b64f80f9005bf750c62, type: 2}
   - characterName: Vitral Guy
     characterSprite: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
+    characterAnimator: {fileID: 9100000, guid: 314691ad547e3e243b33e4b15b39f388, type: 2}
   - characterName: Mask Dude
     characterSprite: {fileID: -266384477, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
+    characterAnimator: {fileID: 9100000, guid: 270aefecf63d8ad4fa566282c3ad1bfc, type: 2}
