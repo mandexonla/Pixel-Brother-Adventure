@@ -22,3 +22,6 @@ MonoBehaviour:
   - characterName: Mask Dude
     characterSprite: {fileID: -266384477, guid: 3750f45c844123341b9a777a96cb1eca, type: 3}
     characterAnimator: {fileID: 9100000, guid: 270aefecf63d8ad4fa566282c3ad1bfc, type: 2}
+  - characterName: Pink Man
+    characterSprite: {fileID: -6367560908665664636, guid: d348dff3819df794186a80cb95777629, type: 3}
+    characterAnimator: {fileID: 9100000, guid: 68f29ca8234f6334f91ac7568c8bc3f3, type: 2}
