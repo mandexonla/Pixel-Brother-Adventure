@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -20,6 +20,12 @@ public class ObjectSpawner : MonoBehaviour
     private List<Vector3> validSpawnPositions = new List<Vector3>();
     private List<GameObject> spawnObjects = new List<GameObject>();
     private bool isSpawning = false;
+
+
+    private List<Vector3> groundPositions = new();
+    private List<Vector3> wallLeftPositions = new();
+    private List<Vector3> wallRightPositions = new();
+
 
     // Start is called before the first frame update
     void Start()
@@ -154,21 +160,25 @@ public class ObjectSpawner : MonoBehaviour
     private void GatherValidPositions()
     {
         validSpawnPositions.Clear();
-        BoundsInt boundsInt = tilemap.cellBounds;
-        TileBase[] allTiles = tilemap.GetTilesBlock(boundsInt);
-        Vector3 start = tilemap.CellToWorld(new Vector3Int(boundsInt.xMin, boundsInt.yMin, 0));
 
-        for (int x = 0; x < boundsInt.size.x; x++)
+        BoundsInt bounds = tilemap.cellBounds;
+
+        for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
-            for (int y = 0; y < boundsInt.size.y; y++)
+            for (int y = bounds.yMin; y < bounds.yMax; y++)
             {
-                TileBase tile = allTiles[x + y * boundsInt.size.x];
-                if (tile != null)
-                {
-                    Vector3 place = start + new Vector3(x + 0.5f, y + 1.5f, 0);
-                    validSpawnPositions.Add(place);
-                }
+                Vector3Int cell = new Vector3Int(x, y, 0);
+
+                if (!tilemap.HasTile(cell)) continue;
+
+                Vector3Int above = new Vector3Int(x, y + 1, 0);
+                if (tilemap.HasTile(above)) continue; // There are tiles above, not the ground.
+
+                Vector3 worldPos = tilemap.GetCellCenterWorld(above);
+
+                validSpawnPositions.Add(worldPos);
             }
         }
     }
+
 }

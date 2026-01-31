@@ -59,6 +59,9 @@ public class CharacterMovement : MonoBehaviour
     float wallJumpTimer;
     public Vector2 wallJumpForce = new Vector2(5f, 10f);
 
+    //running
+    bool isRunning => Mathf.Abs(rb.velocity.x) > 0.1f;
+
 
     private void Start()
     {
@@ -70,10 +73,6 @@ public class CharacterMovement : MonoBehaviour
     {
         if (GameManager.Instance.IsGameOver() || GameManager.Instance.IsGameWin()) return;
 
-        animator.SetFloat("yVelocity", rb.velocity.y);
-        animator.SetFloat("magnitude", rb.velocity.magnitude);
-        animator.SetBool("isWallSliding", isWallSliding);
-
         if (isDashing)
         {
             return;
@@ -83,6 +82,11 @@ public class CharacterMovement : MonoBehaviour
         ProcessGravity();
         ProcessWallSlide();
         ProcessWallJump();
+
+        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("magnitude", rb.velocity.magnitude);
+        animator.SetBool("isWallSliding", isWallSliding);
+        animator.SetBool("isRunning", isRunning);
 
         if (!isWallJumping)
         {
@@ -166,12 +170,14 @@ public class CharacterMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (jumpRemaining > 0)
+        if (jumpRemaining > 1)
         {
+            animator.SetBool("jump", isGrouneded);
             if (context.performed)
             {
                 //Hold jump button = higher jump
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                animator.SetBool("doubleJump", !isGrouneded);
                 jumpRemaining--;
                 JumpFX();
                 SoundEffectManager.Play("PlayerJump");
@@ -180,9 +186,9 @@ public class CharacterMovement : MonoBehaviour
             {
                 //Ligh tap jump button = lower jump
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-                jumpRemaining--;
                 JumpFX();
                 SoundEffectManager.Play("PlayerJump");
+                animator.SetBool("jump", true);
             }
         }
 
@@ -193,7 +199,7 @@ public class CharacterMovement : MonoBehaviour
             isWallJumping = true;
             rb.velocity = new Vector2(wallJumpDirection * wallJumpForce.x, wallJumpForce.y); //Jump away from wall
             wallJumpTimer = 0f;
-            animator.SetTrigger("jump");
+            //animator.SetTrigger("jump");
 
             //Force flip 
             if (transform.localScale.x != wallJumpDirection)
@@ -212,7 +218,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void JumpFX()
     {
-        animator.SetTrigger("jump");
         smokeFX.Play();
     }
 

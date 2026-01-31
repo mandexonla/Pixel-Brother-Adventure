@@ -1371,7 +1371,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -54341561
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -99
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3708,9 +3708,9 @@ MonoBehaviour:
   - {fileID: 1845037633066503863, guid: 34c951791225d2346806d12baf2d8fad, type: 3}
   bigFruitProbibility: 0.2
   enemyProbibility: 0.2
-  maxObjects: 5
-  fruitLifeTime: 10
-  spawnInterval: 0.5
+  maxObjects: 10
+  fruitLifeTime: 100
+  spawnInterval: 1
 --- !u!4 &459506065
 Transform:
   m_ObjectHideFlags: 0
@@ -5474,7 +5474,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -54341561
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -99
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -11959,7 +11959,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -54341561
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -99
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -14568,6 +14568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 448729185243458828, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
+      propertyPath: maxJump
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1313483151235770922, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -14798,7 +14802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1845037633066503863, guid: 34c951791225d2346806d12baf2d8fad, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3494922717294278859, guid: 34c951791225d2346806d12baf2d8fad, type: 3}
       propertyPath: m_LocalPosition.x
