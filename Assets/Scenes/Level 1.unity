@@ -448,7 +448,7 @@ RectTransform:
   m_Father: {fileID: 1377207607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6445,8 +6445,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 956640161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6815,7 +6815,7 @@ GameObject:
   - component: {fileID: 1157922462}
   - component: {fileID: 1157922461}
   m_Layer: 5
-  m_Name: RetryButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6887,7 +6887,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1509723046}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ResetGame
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8342,6 +8342,12 @@ MonoBehaviour:
   - name: WinGame
     audioClips:
     - {fileID: 8300000, guid: 8d95576abad205345892244fdb46e091, type: 3}
+  - name: PlayerDoubleJump
+    audioClips:
+    - {fileID: 8300000, guid: 3229936547a199941889fae590271b90, type: 3}
+  - name: CollectHeart
+    audioClips:
+    - {fileID: 8300000, guid: afb844002d0563e4f810cc0732e50b52, type: 3}
 --- !u!82 &1610304900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8758,7 +8764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1690938705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9300,7 +9306,7 @@ RectTransform:
   m_Father: {fileID: 1163367096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11809,8 +11815,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 24990681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

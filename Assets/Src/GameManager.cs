@@ -52,15 +52,27 @@ public class GameManager : Singleton<GameManager>
 
         MusicManager.ResumeBackground();
 
-        SceneManager.LoadScene("Level 1");
-    }
-    public bool IsGameOver()
-    {
-        return isGameOver;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
-    public bool IsGameWin()
+    public void NextLevel()
     {
-        return isGameWin;
+        Time.timeScale = 1f;
+        MusicManager.ResumeBackground();
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene("SelectLevel");
+
+            return;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
+
+
+    public bool IsGameOver() => isGameOver;
+    public bool IsGameWin() => isGameWin;
 }

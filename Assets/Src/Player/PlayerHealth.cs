@@ -50,6 +50,8 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = maxHealth;
         }
         heartUI.UpdateHeart(currentHealth);
+
+        SoundEffectManager.Play("CollectHeart");
     }
 
     void ResetHealth()

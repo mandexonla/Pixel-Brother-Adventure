@@ -181,6 +181,7 @@ public class CharacterMovement : MonoBehaviour
                 jumpRemaining--;
                 JumpFX();
                 SoundEffectManager.Play("PlayerJump");
+                SoundEffectManager.Play("PlayerDoubleJump");
             }
             else if (context.canceled)
             {
@@ -189,6 +190,7 @@ public class CharacterMovement : MonoBehaviour
                 JumpFX();
                 SoundEffectManager.Play("PlayerJump");
                 animator.SetBool("jump", true);
+                SoundEffectManager.Play("PlayerDoubleJump");
             }
         }
 
