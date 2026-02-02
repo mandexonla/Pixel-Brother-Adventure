@@ -7,6 +7,12 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene("CharacterSelection");
     }
+
+    public void OnStartHome()
+    {
+        SceneManager.LoadScene("MenuGame");
+    }
+
     public void OnExitClip()
     {
 #if UNITY_EDITOR
