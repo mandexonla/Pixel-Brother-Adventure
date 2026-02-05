@@ -62,6 +62,9 @@ public class CharacterMovement : MonoBehaviour
     //running
     bool isRunning => Mathf.Abs(rb.velocity.x) > 0.1f;
 
+    //interact
+    private GameObject _currentInteractableObject;
+
 
     private void Start()
     {
@@ -83,16 +86,15 @@ public class CharacterMovement : MonoBehaviour
         ProcessWallSlide();
         ProcessWallJump();
 
-        animator.SetFloat("yVelocity", rb.velocity.y);
-        animator.SetFloat("magnitude", rb.velocity.magnitude);
-        animator.SetBool("isWallSliding", isWallSliding);
-        animator.SetBool("isRunning", isRunning);
-
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
             Flip();
         }
+        animator.SetFloat("yVelocity", rb.velocity.y);
+        //animator.SetFloat("magnitude", rb.velocity.magnitude);
+        animator.SetBool("isWallSliding", isWallSliding);
+        animator.SetBool("isRunning", isRunning);
     }
 
 
@@ -107,6 +109,35 @@ public class CharacterMovement : MonoBehaviour
         {
             StartCoroutine(DashCoroutine());
         }
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        if (_currentInteractableObject == null) return;
+
+        IInteractable interactable =
+            _currentInteractableObject.GetComponent<IInteractable>();
+
+        if (interactable != null)
+        {
+            interactable.Interact();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("InteractableObject"))
+        {
+            _currentInteractableObject = collision.gameObject;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        _currentInteractableObject = null;
     }
 
     public void Drop(InputAction.CallbackContext context)
@@ -189,7 +220,7 @@ public class CharacterMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
                 JumpFX();
                 SoundEffectManager.Play("PlayerJump");
-                animator.SetBool("jump", true);
+                animator.SetTrigger("jump");
                 SoundEffectManager.Play("PlayerDoubleJump");
             }
         }

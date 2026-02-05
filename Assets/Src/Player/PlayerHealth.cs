@@ -93,6 +93,4 @@ public class PlayerHealth : MonoBehaviour
         HealthItem.OnHealthCollect -= Heal;
         //GameManager.OnResetGame -= ResetHealth;
     }
-
-
 }

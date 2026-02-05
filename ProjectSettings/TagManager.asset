@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - Ladder
   - Cup
+  - InteractableObject
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Trap
   - Floor
   - Fruit
-  - 
+  - Foreground
   - 
   - 
   - 

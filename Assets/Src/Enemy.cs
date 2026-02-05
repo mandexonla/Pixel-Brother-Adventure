@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private bool shouldJump;
 
     public int damage = 1;
-    public int maxHealth = 3;
+    public int maxHealth = 1;
     private int currentHealth;
     private SpriteRenderer spriteRenderer;
     private Color ogcolor;
@@ -54,9 +54,11 @@ public class Enemy : MonoBehaviour
             // else if there's player above and platform above
 
             //If ground
-            RaycastHit2D groundInfront = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 2f, groundLayer);
+            RaycastHit2D groundInfront = Physics2D.Raycast(transform.position,
+                new Vector2(direction, 0), 2f, groundLayer);
             //If gap
-            RaycastHit2D gapAhead = Physics2D.Raycast(transform.position + new Vector3(direction, 0, 0), Vector2.down, 2f, groundLayer);
+            RaycastHit2D gapAhead = Physics2D.Raycast(transform.position +
+                new Vector3(direction, 0, 0), Vector2.down, 2f, groundLayer);
             //If platform above
             RaycastHit2D platformAbove = Physics2D.Raycast(transform.position, Vector2.up, 3f, groundLayer);
 

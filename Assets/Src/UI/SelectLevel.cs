@@ -9,6 +9,11 @@ public class SelectLevel : MonoBehaviour
         SceneManager.LoadScene("MenuGame");
     }
 
+    public void OnLevel0Button()
+    {
+        SceneManager.LoadScene("Level 0");
+    }
+
     public void OnLevel1Button()
     {
         SceneManager.LoadScene("Level 1");

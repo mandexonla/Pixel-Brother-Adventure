@@ -14,7 +14,6 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(_characterDatabase);
         animator = GetComponent<Animator>();
         UpdateCharacter(PlayerPrefs.GetInt("SelectedCharacter"));
     }
@@ -27,7 +26,6 @@ public class CharacterManager : MonoBehaviour
         {
             selectedCharacter = 0;
         }
-        Debug.Log("Next clicked");
         UpdateCharacter(selectedCharacter);
     }
 
@@ -50,6 +48,5 @@ public class CharacterManager : MonoBehaviour
         animator.runtimeAnimatorController = _character.characterAnimator;
         PlayerPrefs.SetInt("SelectedCharacter", selectedCharacter);
         PlayerPrefs.Save();
-        Debug.Log("Character updated to: " + PlayerPrefs.GetInt("SelectedCharacter"));
     }
 }
