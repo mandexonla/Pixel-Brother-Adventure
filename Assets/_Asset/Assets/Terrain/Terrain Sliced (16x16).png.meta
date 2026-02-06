@@ -841,7 +841,7 @@ TextureImporter:
         serializedVersion: 2
         x: 272
         y: 160
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -860,9 +860,9 @@ TextureImporter:
       name: Terrain Sliced (16x16)_15
       rect:
         serializedVersion: 2
-        x: 288
+        x: 272
         y: 160
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -881,9 +881,9 @@ TextureImporter:
       name: Terrain Sliced (16x16)_16
       rect:
         serializedVersion: 2
-        x: 304
+        x: 273
         y: 160
-        width: 16
+        width: 47
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1198,7 +1198,7 @@ TextureImporter:
         serializedVersion: 2
         x: 272
         y: 144
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1217,9 +1217,9 @@ TextureImporter:
       name: Terrain Sliced (16x16)_32
       rect:
         serializedVersion: 2
-        x: 288
+        x: 272
         y: 144
-        width: 16
+        width: 47
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1450,7 +1450,7 @@ TextureImporter:
         serializedVersion: 2
         x: 272
         y: 128
-        width: 16
+        width: 49
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1469,9 +1469,9 @@ TextureImporter:
       name: Terrain Sliced (16x16)_44
       rect:
         serializedVersion: 2
-        x: 288
+        x: 273
         y: 128
-        width: 16
+        width: 47
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1490,9 +1490,9 @@ TextureImporter:
       name: Terrain Sliced (16x16)_45
       rect:
         serializedVersion: 2
-        x: 304
+        x: 272
         y: 128
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

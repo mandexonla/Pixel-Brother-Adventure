@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class LeverController : MonoBehaviour, IInteractable
 {
-    [SerializeField] DoorController _door;
+    //[SerializeField] DoorController _door;
+    [SerializeField] MovingDoor _door;
     [SerializeField] GameObject checkMark;
     [SerializeField] GameObject leverFruit;
 
@@ -61,7 +62,7 @@ public class LeverController : MonoBehaviour, IInteractable
         _door.CloseDoor();
     }
 
-    private bool CheckCondition()
+    public bool CheckCondition()
     {
         return FruitManager.Instance.AreThereEnoughFruit(_door.DoorFruitType, _door.DoorFruitNumber);
     }
