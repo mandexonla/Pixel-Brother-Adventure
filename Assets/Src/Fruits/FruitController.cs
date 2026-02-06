@@ -8,7 +8,6 @@ public class FruitController : MonoBehaviour, Item
     bool isCollected;
 
     public static event Action<int> OnFruitCollect;
-    public int worth = 5;
 
     private void Awake()
     {
@@ -28,7 +27,6 @@ public class FruitController : MonoBehaviour, Item
     }
     public void Collect()
     {
-        OnFruitCollect?.Invoke(worth);
         SoundEffectManager.Play("Fruit");
         Destroy(gameObject);
     }

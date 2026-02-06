@@ -8,6 +8,9 @@ TagManager:
   - Ladder
   - Cup
   - InteractableObject
+  - Melon
+  - Banana
+  - Pineapple
   layers:
   - Default
   - TransparentFX

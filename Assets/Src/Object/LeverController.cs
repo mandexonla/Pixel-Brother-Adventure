@@ -36,10 +36,15 @@ public class LeverController : MonoBehaviour, IInteractable
             checkMark.SetActive(true);
             leverFruit.SetActive(false);
         }
+        else
+        {
+            SoundEffectManager.Play("LeverOff");
+        }
     }
 
     private void TriggerLever()
     {
+        SoundEffectManager.Play("LeverTick");
         if (IsLeverOn)
         {
             LeverOff();
