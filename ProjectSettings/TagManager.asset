@@ -11,6 +11,7 @@ TagManager:
   - Melon
   - Banana
   - Pineapple
+  - TrapFire
   layers:
   - Default
   - TransparentFX

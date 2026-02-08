@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +10,10 @@ public class PlayerHealth : MonoBehaviour
     public HeartUI heartUI;
 
     private SpriteRenderer spriteRenderer;
+
+    private float lastDamageTime;
+    private float damageCooldown = 0.5f;
+
 
     public static event Action onPlayerDied;
     // Start is called before the first frame update
@@ -39,6 +43,21 @@ public class PlayerHealth : MonoBehaviour
         {
             //play Random sound
             SoundEffectManager.Play("Bounce");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        FiretrapController firetrap = collision.GetComponent<FiretrapController>();
+        if (firetrap && firetrap.IsFiring)
+        {
+            // Chỉ nhận damage sau mỗi khoảng thời gian damageCooldown
+            if (Time.time - lastDamageTime >= damageCooldown)
+            {
+                TakeDamage(1);
+                SoundEffectManager.Play("PlayerHit");
+                lastDamageTime = Time.time;
+            }
         }
     }
 
