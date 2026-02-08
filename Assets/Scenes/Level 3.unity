@@ -1410,6 +1410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 0
   damage: 2
 --- !u!1839735485 &53541197
 Tilemap:
@@ -1652,6 +1653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 0
   damage: 2
 --- !u!1839735485 &77765379
 Tilemap:
@@ -2181,6 +2183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 0
   damage: 2
 --- !u!1839735485 &106711999
 Tilemap:
@@ -2434,11 +2437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8471992323712526080, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.59
+      value: 9.14
       objectReference: {fileID: 0}
     - target: {fileID: 8471992323712526080, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.42
+      value: -5.97
       objectReference: {fileID: 0}
     - target: {fileID: 8471992323712526080, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3778,6 +3781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 0
   damage: 2
 --- !u!1839735485 &254184249
 Tilemap:
@@ -4295,6 +4299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 0
   damage: 2
 --- !u!1839735485 &269401947
 Tilemap:
@@ -5353,6 +5358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 5
   damage: 2
 --- !u!1839735485 &348955666
 Tilemap:
@@ -6447,6 +6453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 5
   damage: 1
 --- !u!50 &351654991
 Rigidbody2D:
@@ -9675,7 +9682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -912.5, y: 457.7}
+  m_AnchoredPosition: {x: -912.5, y: 492.8}
   m_SizeDelta: {x: 96.717, y: 87.5081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &542530397 stripped
@@ -13020,7 +13027,7 @@ Transform:
   m_GameObject: {fileID: 775646726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 4.42, z: -10}
+  m_LocalPosition: {x: 9.14, y: -5.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13948,6 +13955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 5
   damage: 2
 --- !u!1839735485 &862174795
 Tilemap:
@@ -29795,6 +29803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  speedBounce: 5
   damage: 2
 --- !u!1839735485 &1579513723
 Tilemap:
@@ -34353,11 +34362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7374849545597576360, guid: 6f1fc868274ae204a8d90469418c1435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.59
+      value: 9.14
       objectReference: {fileID: 0}
     - target: {fileID: 7374849545597576360, guid: 6f1fc868274ae204a8d90469418c1435, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.42
+      value: -5.97
       objectReference: {fileID: 0}
     - target: {fileID: 7374849545597576360, guid: 6f1fc868274ae204a8d90469418c1435, type: 3}
       propertyPath: m_LocalPosition.z

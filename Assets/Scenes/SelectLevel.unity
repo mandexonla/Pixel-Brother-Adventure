@@ -3132,6 +3132,7 @@ GameObject:
   - component: {fileID: 1384866709}
   - component: {fileID: 1384866708}
   - component: {fileID: 1384866707}
+  - component: {fileID: 1384866710}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -3146,17 +3147,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384866705}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7073899, w: 0.7068236}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1945928046}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.046}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -751, y: 418.35876}
-  m_SizeDelta: {x: 160, y: 111.8345}
+  m_AnchoredPosition: {x: -733.3, y: 410.7}
+  m_SizeDelta: {x: 139.5264, y: 165.2603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384866707
 MonoBehaviour:
@@ -3204,7 +3205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1945928047}
         m_TargetAssemblyTypeName: SelectLevel, Assembly-CSharp
-        m_MethodName: BackMenuScene
+        m_MethodName: CharacterSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3234,7 +3235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 794e35452c487274b8828cb82debee72, type: 3}
+  m_Sprite: {fileID: 8784796110683535280, guid: fc834c17a763e0141b0fec5d598e279b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3252,6 +3253,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384866705}
   m_CullTransparentMesh: 1
+--- !u!95 &1384866710
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384866705}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bf90242f7b02fd40856c92e3994ad21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1481215084
 GameObject:
   m_ObjectHideFlags: 0

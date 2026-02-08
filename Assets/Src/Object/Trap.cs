@@ -3,6 +3,7 @@
 public class Trap : MonoBehaviour
 {
     public float bounceForce = 10f;
+    public float speedBounce = 5f;
     public int damage = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +24,7 @@ public class Trap : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0f);
 
             //apply bounce force
-            rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * bounceForce * speedBounce, ForceMode2D.Impulse);
         }
     }
 }

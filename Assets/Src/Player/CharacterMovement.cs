@@ -20,7 +20,6 @@ public class CharacterMovement : MonoBehaviour
     public float dashCooldown = 0.1f;
     bool isDashing;
     bool canDash = true;
-    TrailRenderer trailRenderer;
 
     [Header("Jumping")]
     public float jumpForce = 5f;
@@ -68,7 +67,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
-        trailRenderer = GetComponent<TrailRenderer>();
         playerCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -181,7 +179,6 @@ public class CharacterMovement : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 8, true);
         canDash = false;
         isDashing = true;
-        trailRenderer.emitting = true;
 
         float dashDirection = isFacingRight ? 1f : -1f;
 
@@ -191,7 +188,6 @@ public class CharacterMovement : MonoBehaviour
         rb.velocity = new Vector2(0f, rb.velocity.y);// reset horizontal veclocity
 
         isDashing = false;
-        trailRenderer.emitting = false;
         Physics2D.IgnoreLayerCollision(7, 8, false);
 
         yield return new WaitForSeconds(dashDirection);
@@ -210,7 +206,7 @@ public class CharacterMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 animator.SetBool("doubleJump", !isGrouneded);
                 jumpRemaining--;
-                JumpFX();
+                //JumpFX();
                 SoundEffectManager.Play("PlayerJump");
                 SoundEffectManager.Play("PlayerDoubleJump");
             }
@@ -218,7 +214,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 //Ligh tap jump button = lower jump
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-                JumpFX();
+                //JumpFX();
                 SoundEffectManager.Play("PlayerJump");
                 animator.SetTrigger("jump");
                 SoundEffectManager.Play("PlayerDoubleJump");
@@ -244,15 +240,15 @@ public class CharacterMovement : MonoBehaviour
             }
 
             Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); // wall Jump = 0.5f -- Jump again = 0.6f
-            JumpFX();
+            //JumpFX();
         }
 
     }
 
-    private void JumpFX()
-    {
-        smokeFX.Play();
-    }
+    //private void JumpFX()
+    //{
+    //    smokeFX.Play();
+    //}
 
     private void GroundCheck()
     {
@@ -332,10 +328,10 @@ public class CharacterMovement : MonoBehaviour
             ls.x *= -1;
             transform.localScale = ls;
 
-            if (rb.velocity.y == 0)
-            {
-                smokeFX.Play();
-            }
+            //if (rb.velocity.y == 0)
+            //{
+            //    smokeFX.Play();
+            //}
         }
     }
 

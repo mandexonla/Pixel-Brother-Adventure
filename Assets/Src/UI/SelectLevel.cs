@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 public class SelectLevel : MonoBehaviour
 {
 
-    public void BackMenuScene()
+    public void CharacterSelection()
     {
-        SceneManager.LoadScene("MenuGame");
+        SceneManager.LoadScene("CharacterSelection");
     }
 
     public void OnLevel0Button()

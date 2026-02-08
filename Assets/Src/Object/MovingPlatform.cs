@@ -9,13 +9,11 @@ public class MovingPlatform : MonoBehaviour
 
     private Vector3 nextPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
         nextPosition = pointB.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
@@ -25,11 +23,16 @@ public class MovingPlatform : MonoBehaviour
             nextPosition = (nextPosition == pointA.position) ? pointB.position : pointA.position;
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(SettingPanelDelayed(collision.gameObject.transform.transform, transform));
+            // Sửa thêm: Kiểm tra active để an toàn tuyệt đối
+            if (this.gameObject.activeInHierarchy)
+            {
+                StartCoroutine(SettingPanelDelayed(collision.transform, transform));
+            }
         }
     }
 
@@ -37,7 +40,12 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(SettingPanelDelayed(collision.gameObject.transform.transform, null));
+            // SỬA LỖI: Chỉ chạy lệnh gỡ cha nếu object này ĐANG HOẠT ĐỘNG
+            if (this.gameObject.activeInHierarchy)
+            {
+                StartCoroutine(SettingPanelDelayed(collision.transform, null));
+            }
+            // Nếu activeInHierarchy == false (đang tắt), ta bỏ qua để tránh lỗi SetParent
         }
     }
 
