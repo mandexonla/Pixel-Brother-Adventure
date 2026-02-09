@@ -28,7 +28,6 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Sửa thêm: Kiểm tra active để an toàn tuyệt đối
             if (this.gameObject.activeInHierarchy)
             {
                 StartCoroutine(SettingPanelDelayed(collision.transform, transform));
@@ -40,12 +39,10 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // SỬA LỖI: Chỉ chạy lệnh gỡ cha nếu object này ĐANG HOẠT ĐỘNG
             if (this.gameObject.activeInHierarchy)
             {
                 StartCoroutine(SettingPanelDelayed(collision.transform, null));
             }
-            // Nếu activeInHierarchy == false (đang tắt), ta bỏ qua để tránh lỗi SetParent
         }
     }
 

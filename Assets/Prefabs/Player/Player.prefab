@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 6658215196823481778}
   - component: {fileID: 4121613538650646078}
   - component: {fileID: 3766389231838950092}
+  - component: {fileID: 4371770485542359143}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -480,6 +481,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefabs: {fileID: 4551476022322185201, guid: 3941afae28d0afd42a550b253e0e8883, type: 3}
   bulletSpeed: 50
+--- !u!114 &4371770485542359143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313483151235770922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb11feecd21b79d46a246399ed3d7f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countitemMelon: {fileID: 0}
+  _countitemBanana: {fileID: 0}
+  _countitemPineapple: {fileID: 0}
+  _countMelon: 0
+  _countBanana: 0
+  _countPineapple: 0
 --- !u!1 &4923282277895334222
 GameObject:
   m_ObjectHideFlags: 0

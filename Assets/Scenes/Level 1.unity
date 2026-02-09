@@ -6241,7 +6241,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.005952835, y: -0.059534907}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6252,7 +6252,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.5}
+  m_Size: {x: 1.3213463, y: 1.3809302}
   m_EdgeRadius: 0
 --- !u!212 &980030179
 SpriteRenderer:
@@ -8399,6 +8399,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 302226471}
     m_Modifications:
+    - target: {fileID: 1846067145057786365, guid: e59eb76f369de4b4fb803b43fc57f7df, type: 3}
+      propertyPath: speedBounce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3399337442168684752, guid: e59eb76f369de4b4fb803b43fc57f7df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.85
@@ -8587,7 +8591,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0041618347, y: -0.017503738}
+  m_Offset: {x: 0.010620117, y: -0.017503738}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8598,7 +8602,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0309143, y: 0.22517395}
+  m_Size: {x: 1.87146, y: 0.22517395}
   m_EdgeRadius: 0
 --- !u!95 &1400637399
 Animator:
@@ -15175,7 +15179,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0029773712, y: 0.07144189}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15186,7 +15190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.5}
+  m_Size: {x: 1.267765, y: 1.3571162}
   m_EdgeRadius: 0
 --- !u!212 &2051125637
 SpriteRenderer:
@@ -15770,6 +15774,18 @@ PrefabInstance:
       propertyPath: heartUI
       value: 
       objectReference: {fileID: 699157665}
+    - target: {fileID: 4371770485542359143, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
+      propertyPath: _countitemMelon
+      value: 
+      objectReference: {fileID: 782764650}
+    - target: {fileID: 4371770485542359143, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
+      propertyPath: _countitemBanana
+      value: 
+      objectReference: {fileID: 1553703720}
+    - target: {fileID: 4371770485542359143, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
+      propertyPath: _countitemPineapple
+      value: 
+      objectReference: {fileID: 747135958}
     - target: {fileID: 4782293124145007902, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       propertyPath: m_Camera
       value: 
@@ -15950,9 +15966,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1313483151235770922, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 981771683397897385}
-    - targetCorrespondingSourceObject: {fileID: 1313483151235770922, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 981771683397897402}
   m_SourcePrefab: {fileID: 100100000, guid: 652441d113bde3f43b5f58c426bae55a, type: 3}
 --- !u!1 &981771683397897384 stripped
 GameObject:
@@ -15995,24 +16008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005174ae03b2ce840aa56ef9765402b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &981771683397897402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981771683397897384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb11feecd21b79d46a246399ed3d7f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _countitemMelon: {fileID: 782764650}
-  _countitemBanana: {fileID: 1553703720}
-  _countitemPineapple: {fileID: 747135958}
-  _countMelon: 0
-  _countBanana: 0
-  _countPineapple: 0
 --- !u!1001 &995647597695215954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16281,6 +16276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 302226471}
     m_Modifications:
+    - target: {fileID: 1846067145057786365, guid: e59eb76f369de4b4fb803b43fc57f7df, type: 3}
+      propertyPath: speedBounce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3399337442168684752, guid: e59eb76f369de4b4fb803b43fc57f7df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.46

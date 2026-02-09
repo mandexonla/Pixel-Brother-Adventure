@@ -51,7 +51,6 @@ public class PlayerHealth : MonoBehaviour
         FiretrapController firetrap = collision.GetComponent<FiretrapController>();
         if (firetrap && firetrap.IsFiring)
         {
-            // Chỉ nhận damage sau mỗi khoảng thời gian damageCooldown
             if (Time.time - lastDamageTime >= damageCooldown)
             {
                 TakeDamage(1);
