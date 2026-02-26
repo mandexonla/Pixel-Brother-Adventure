@@ -32,6 +32,11 @@ public class CharacterMovement : MonoBehaviour
     public LayerMask groundLayer;
     bool isGrouneded;
     bool isOnPlatform;
+    bool isOnTrap;
+
+    [Header("Trap")]
+    [Range(0f, 1f)]
+    public float trapSpeedMultiplier = 0.4f; // Speed ​​while standing on the trap
 
 
     [Header("Gravity")]
@@ -86,11 +91,11 @@ public class CharacterMovement : MonoBehaviour
 
         if (!isWallJumping)
         {
-            rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+            float currentSpeed = isOnTrap ? moveSpeed * trapSpeedMultiplier : moveSpeed;
+            rb.linearVelocity = new Vector2(horizontalMovement * currentSpeed, rb.linearVelocity.y);
             Flip();
         }
         animator.SetFloat("yVelocity", rb.linearVelocity.y);
-        //animator.SetFloat("magnitude", rb.velocity.magnitude);
         animator.SetBool("isWallSliding", isWallSliding);
         animator.SetBool("isRunning", isRunning);
     }
@@ -162,7 +167,6 @@ public class CharacterMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Cup"))
         {
-            //estroy(collision.gameObject);
             GameManager.Instance.GameWin();
         }
     }
@@ -206,7 +210,7 @@ public class CharacterMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 animator.SetBool("doubleJump", !isGrouneded);
                 jumpRemaining--;
-                //JumpFX();
+                ;
                 SoundEffectManager.Play("PlayerJump");
                 SoundEffectManager.Play("PlayerDoubleJump");
             }
@@ -214,7 +218,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 //Ligh tap jump button = lower jump
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
-                //JumpFX();
+
                 SoundEffectManager.Play("PlayerJump");
                 animator.SetTrigger("jump");
                 SoundEffectManager.Play("PlayerDoubleJump");
@@ -228,7 +232,6 @@ public class CharacterMovement : MonoBehaviour
             isWallJumping = true;
             rb.linearVelocity = new Vector2(wallJumpDirection * wallJumpForce.x, wallJumpForce.y); //Jump away from wall
             wallJumpTimer = 0f;
-            //animator.SetTrigger("jump");
 
             //Force flip 
             if (transform.localScale.x != wallJumpDirection)
@@ -240,28 +243,34 @@ public class CharacterMovement : MonoBehaviour
             }
 
             Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); // wall Jump = 0.5f -- Jump again = 0.6f
-            //JumpFX();
         }
 
     }
-
-    //private void JumpFX()
-    //{
-    //    smokeFX.Play();
-    //}
 
     private void GroundCheck()
     {
         if (Physics2D.OverlapBox(groundCheckPosion.position, groundCheckSize, 0, groundLayer))
         {
             jumpRemaining = maxJump;
-
             isGrouneded = true;
         }
         else
         {
             isGrouneded = false;
         }
+
+        //When standing on a trap: act as if you are standing on the ground
+        //reset jumpRemaining every frame to jump multiple times
+        if (isOnTrap)
+        {
+            jumpRemaining = maxJump;
+            isGrouneded = true;
+        }
+    }
+
+    public void SetOnTrap(bool value)
+    {
+        isOnTrap = value;
     }
 
     private bool WallCheck()
@@ -327,11 +336,6 @@ public class CharacterMovement : MonoBehaviour
             Vector3 ls = transform.localScale;
             ls.x *= -1;
             transform.localScale = ls;
-
-            //if (rb.velocity.y == 0)
-            //{
-            //    smokeFX.Play();
-            //}
         }
     }
 

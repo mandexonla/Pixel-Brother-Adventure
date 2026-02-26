@@ -50,8 +50,7 @@ public class PlayerClimb : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             isLadder = true;
-            verticalInput = isClimbing ? 1 : 0;
-            Debug.Log("Enter Ladder");
+            verticalInput = isClimbing ? 1 : 0; ;
         }
     }
 
@@ -62,7 +61,6 @@ public class PlayerClimb : MonoBehaviour
             isLadder = false;
             verticalInput = 0;
             rb.gravityScale = defaultGravity;
-            Debug.Log("Exit Ladder");
         }
     }
 }

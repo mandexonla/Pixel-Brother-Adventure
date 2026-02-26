@@ -6,6 +6,30 @@ public class Trap : MonoBehaviour
     public float speedBounce = 5f;
     public int damage = 1;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            CharacterMovement movement = collision.gameObject.GetComponent<CharacterMovement>();
+            if (movement != null)
+            {
+                movement.SetOnTrap(true);
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            CharacterMovement movement = collision.gameObject.GetComponent<CharacterMovement>();
+            if (movement != null)
+            {
+                movement.SetOnTrap(false);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
