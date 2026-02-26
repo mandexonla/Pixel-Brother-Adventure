@@ -37,7 +37,7 @@ public class PlayerClimb : MonoBehaviour
         if (isClimbing_Fixupdate)
         {
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, verticalInput * speedClimb);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, verticalInput * speedClimb);
         }
         else
         {

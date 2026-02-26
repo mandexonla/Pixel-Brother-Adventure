@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
         Vector3 shootDirection = (mousePosition - transform.position).normalized;
 
         GameObject bullet = Instantiate(bulletPrefabs, transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y) * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(shootDirection.x, shootDirection.y) * bulletSpeed;
         Destroy(bullet, 2f);
     }
 

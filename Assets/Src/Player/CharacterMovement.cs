@@ -59,7 +59,7 @@ public class CharacterMovement : MonoBehaviour
     public Vector2 wallJumpForce = new Vector2(5f, 10f);
 
     //running
-    bool isRunning => Mathf.Abs(rb.velocity.x) > 0.1f;
+    bool isRunning => Mathf.Abs(rb.linearVelocity.x) > 0.1f;
 
     //interact
     private GameObject _currentInteractableObject;
@@ -86,10 +86,10 @@ public class CharacterMovement : MonoBehaviour
 
         if (!isWallJumping)
         {
-            rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
             Flip();
         }
-        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("yVelocity", rb.linearVelocity.y);
         //animator.SetFloat("magnitude", rb.velocity.magnitude);
         animator.SetBool("isWallSliding", isWallSliding);
         animator.SetBool("isRunning", isRunning);
@@ -182,10 +182,10 @@ public class CharacterMovement : MonoBehaviour
 
         float dashDirection = isFacingRight ? 1f : -1f;
 
-        rb.velocity = new Vector2(dashDirection * dashSpeed, rb.velocity.y);//dash movement
+        rb.linearVelocity = new Vector2(dashDirection * dashSpeed, rb.linearVelocity.y);//dash movement
         yield return new WaitForSeconds(dashDuration);
 
-        rb.velocity = new Vector2(0f, rb.velocity.y);// reset horizontal veclocity
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);// reset horizontal veclocity
 
         isDashing = false;
         Physics2D.IgnoreLayerCollision(7, 8, false);
@@ -203,7 +203,7 @@ public class CharacterMovement : MonoBehaviour
             if (context.performed)
             {
                 //Hold jump button = higher jump
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 animator.SetBool("doubleJump", !isGrouneded);
                 jumpRemaining--;
                 //JumpFX();
@@ -213,7 +213,7 @@ public class CharacterMovement : MonoBehaviour
             else if (context.canceled)
             {
                 //Ligh tap jump button = lower jump
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
                 //JumpFX();
                 SoundEffectManager.Play("PlayerJump");
                 animator.SetTrigger("jump");
@@ -226,7 +226,7 @@ public class CharacterMovement : MonoBehaviour
         if (context.performed && wallJumpTimer > 0f)
         {
             isWallJumping = true;
-            rb.velocity = new Vector2(wallJumpDirection * wallJumpForce.x, wallJumpForce.y); //Jump away from wall
+            rb.linearVelocity = new Vector2(wallJumpDirection * wallJumpForce.x, wallJumpForce.y); //Jump away from wall
             wallJumpTimer = 0f;
             //animator.SetTrigger("jump");
 
@@ -272,10 +272,10 @@ public class CharacterMovement : MonoBehaviour
     private void ProcessGravity()
     {
         //falling gravity
-        if (rb.velocity.y < 0)
+        if (rb.linearVelocity.y < 0)
         {
             rb.gravityScale = baseGravity * fallSpeedMultiplayer; //Fall increasingly faster
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxSpeedFall)); //max fall speed
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, -maxSpeedFall)); //max fall speed
         }
         else
         {
@@ -289,7 +289,7 @@ public class CharacterMovement : MonoBehaviour
         if (!isGrouneded & WallCheck() && horizontalMovement != 0)
         {
             isWallSliding = true;
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -wallSlideSpeed));//caps fall rate
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, -wallSlideSpeed));//caps fall rate
         }
         else
         {

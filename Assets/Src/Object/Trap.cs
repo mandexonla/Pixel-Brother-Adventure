@@ -21,7 +21,7 @@ public class Trap : MonoBehaviour
         if (rb)
         {
             //reset player velocity
-            rb.velocity = new Vector2(rb.velocity.x, 0f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
 
             //apply bounce force
             rb.AddForce(Vector2.up * bounceForce * speedBounce, ForceMode2D.Impulse);

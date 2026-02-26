@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         if (isGrouded)
         {
             //chase player
-            rb.velocity = new Vector2(direction * chaseSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(direction * chaseSpeed, rb.linearVelocity.y);
 
             //Jump if there's gap  ahead && no ground infront
             // else if there's player above and platform above
